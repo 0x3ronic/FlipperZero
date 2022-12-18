@@ -1,0 +1,35 @@
+REM Title: Fake Windows Update Screen v2.0
+REM Author: 0x3ronic
+REM Description: This will set the screen to duplicate and display a web page (https://fakeupdate.net/win10ue/) that mimics a Windows 10 "working on updates" on any/all screens of a computer .
+
+GUI r 
+DELAY 100 
+STRING powershell
+DELAY 100
+ENTER 
+DELAY 500
+REM Setting the computer's keyboard language to US so the string commands work as intended.
+STRING $userlang = Get-WinUserLanguageList
+SHIFT ENTER
+STRING if (($userlang).LanguageTag -ne 'en-US') {
+SHIFT ENTER
+STRING $originlang = (Get-WinUserLanguageList).LanguageTag
+SHIFT ENTER
+STRING Set-WinUserLanguageList -LanguageList en-US -Force}
+ENTER
+REM Checking if multiple monitors are connected and if so, it duplicates/clones the monitors to add to the realism of the prank.
+STRING $monitors = Get-CimInstance -Namespace root\wmi -ClassName WmiMonitorBasicDisplayParams
+SHIFT ENTER
+STRING if ($monitors.Count -gt 1) {displayswitch.exe /clone 
+SHIFT ENTER
+STRING Start-Sleep -Seconds 5} 
+SHIFT ENTER
+STRING else {Write-Host "No additional monitors are connected. Proceeding..."} 
+SHIFT ENTER
+REM Opens Edge in kiosk mode and navigates to the URL containing the fake windows update screen. To exit the kiosk mode, CTRL + ALT + DELETE and kill the Edge process containing the "PRANK: Update Screen" process.
+STRING Start-Process -FilePath "msedge.exe" -ArgumentList '--start-fullscreen https://fakeupdate.net/win10ue/ --edge-kiosk-type=public-browsing --no-first-run'
+SHIFT ENTER
+STRING Set-WinUserLanguageList -LanguageList $originlang -Force
+SHIFT ENTER
+STRING Exit 0
+ENTER
