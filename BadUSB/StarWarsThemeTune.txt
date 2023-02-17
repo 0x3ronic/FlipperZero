@@ -1,0 +1,57 @@
+REM Title: Star Wars Theme Song 
+REM Author: 0x3ronic
+REM Description: This will play a segment of the Star Wars 'The Imperial March' song 3 times using the console beep function in PowerShell. 
+
+GUI r 
+DELAY 100 
+STRING powershell
+DELAY 100
+ENTER 
+DELAY 500
+STRING function StarWars {
+SHIFT ENTER
+STRING    [console]::beep(440,500)
+SHIFT ENTER  
+STRING    [console]::beep(440,500)
+SHIFT ENTER
+STRING    [console]::beep(440,500)
+SHIFT ENTER    
+STRING    [console]::beep(349,350)
+SHIFT ENTER      
+STRING    [console]::beep(523,150)
+SHIFT ENTER     
+STRING    [console]::beep(440,500)
+SHIFT ENTER    
+STRING    [console]::beep(349,350)
+SHIFT ENTER      
+STRING    [console]::beep(523,150)
+SHIFT ENTER     
+STRING    [console]::beep(440,1000)
+SHIFT ENTER
+STRING    [console]::beep(659,500)
+SHIFT ENTER     
+STRING    [console]::beep(659,500)
+SHIFT ENTER      
+STRING    [console]::beep(659,500)
+SHIFT ENTER    
+STRING    [console]::beep(698,350)
+SHIFT ENTER       
+STRING    [console]::beep(523,150)
+SHIFT ENTER      
+STRING    [console]::beep(415,500)
+SHIFT ENTER      
+STRING    [console]::beep(349,350)
+SHIFT ENTER     
+STRING    [console]::beep(523,150)
+SHIFT ENTER       
+STRING    [console]::beep(440,1000)
+SHIFT ENTER
+STRING    StarWars
+SHIFT ENTER
+STRING    StarWars
+SHIFT ENTER
+STRING    }
+SHIFT ENTER
+STRING    StarWars
+ENTER
+GUI DOWNARROW
